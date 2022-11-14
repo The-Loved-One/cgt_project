@@ -1,9 +1,9 @@
 # cgt_assignment
 
 
-##Problem Statement
-- 6. implementation of cut vertices and separability
+## Problem Statement
+- 6) Implementation of cut vertices and separability
 
-##Algorithim
+## Algorithim
 - get the vertices
 - get the edges
