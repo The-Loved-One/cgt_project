@@ -1,8 +1,34 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
+struct node{
+    int data;
+    struct node *next;
+};
+
+struct edges{
+    int from, to;
+    struct node *next;
+};
+
 void check_seperablity(int vertices[], int number_of_vertices, int edges[], int number_of_edges, int removed){
-    
+    int found = 0;
+    number_of_vertices--;
+    for(int i=0;i<number_of_vertices;i++){
+        if (vertices[i] == removed){
+            found=1;
+        }
+        if (found == 1){
+            vertices[i] = vertices[i+1];
+        }
+    }
+    struct node *edges = NULL;
+    for(int i=0;i<number_of_edges;i++){
+        if (edges[i][0]!=removed || edges[i][1]!=removed){
+
+        }
+    }
 }
 
 
