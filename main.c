@@ -2,41 +2,53 @@
 #include<stdlib.h>
 
 
-struct node{
-    int data;
-    struct node *next;
-};
+// struct node{
+    // int data;
+    // struct node *next;
+// };
+// 
+// struct edges{
+    // int from, to;
+    // struct node *next;
+// };
+// 
+// void check_seperablity(int vertices[], int number_of_vertices, int edges[], int number_of_edges, int removed){
+    // int found = 0;
+    // number_of_vertices--;
+    // for(int i=0;i<number_of_vertices;i++){
+        // if (vertices[i] == removed){
+            // found=1;
+        // }
+        // if (found == 1){
+            // vertices[i] = vertices[i+1];
+        // }
+    // }
+    // struct node *edges = NULL;
+    // for(int i=0;i<number_of_edges;i++){
+        // if (edges[i][0]!=removed || edges[i][1]!=removed){
+// 
+        // }
+    // }
+// }
 
-struct edges{
-    int from, to;
-    struct node *next;
-};
+int adj_matrix[30][30], visited[30];
+int number_of_vertices;
 
-void check_seperablity(int vertices[], int number_of_vertices, int edges[], int number_of_edges, int removed){
-    int found = 0;
-    number_of_vertices--;
-    for(int i=0;i<number_of_vertices;i++){
-        if (vertices[i] == removed){
-            found=1;
-        }
-        if (found == 1){
-            vertices[i] = vertices[i+1];
-        }
-    }
-    struct node *edges = NULL;
-    for(int i=0;i<number_of_edges;i++){
-        if (edges[i][0]!=removed || edges[i][1]!=removed){
-
+void dfs(int v){
+    int i;
+    visited[v] = 1;
+    for (i = 1; i <= number_of_vertices; i++){
+        if (adj_matrix[v][i] && !visited[i]){
+            printf("\n %d->%d", v, i);
+            dfs(i);
         }
     }
 }
 
-
-
 //using int main as return can be used to break the flow in case of invalid input
 int main(){
     //getting the vertices
-    int number_of_vertices, number_of_edges;
+    int number_of_edges;
     printf("Enter the number of vertices : ");
     scanf("%d", &number_of_vertices);
     int *vertices = malloc(number_of_vertices*sizeof(int));
@@ -67,8 +79,13 @@ int main(){
             }
         }
         if (value[0] == 0 || value[1] == 0){
+            // exiting the run if the edges have a vertix that does not exist
             return 0;
         }
+    }
+    for (int i = 0; i < number_of_edges; i++){
+        adj_matrix[edges[i][0]][edges[i][1]] = 1;
+        adj_matrix[edges[i][1]][edges[i][0]] = 1;
     }
     /*
     //show all the edges
@@ -82,7 +99,16 @@ int main(){
         loop j, k: vertix
             check path from j to k
     */
-    for(int removed=0;removed<number_of_vertices;removed++){
-        check_seperablity(vertices, number_of_vertices, edges, number_of_edges, removed);
+    dfs(1);
+    printf("\n");
+    int count = 0;
+    for (int i = 1; i <= number_of_vertices; i++) {
+        if (visited[i])
+            count++;
     }
+    if (count == number_of_vertices)
+        printf("\n Graph is connected");
+    else
+        printf("\n Graph is not connected");
+    return 0;
 }
