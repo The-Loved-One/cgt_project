@@ -1,48 +1,27 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
-// struct node{
-    // int data;
-    // struct node *next;
-// };
-// 
-// struct edges{
-    // int from, to;
-    // struct node *next;
-// };
-// 
-// void check_seperablity(int vertices[], int number_of_vertices, int edges[], int number_of_edges, int removed){
-    // int found = 0;
-    // number_of_vertices--;
-    // for(int i=0;i<number_of_vertices;i++){
-        // if (vertices[i] == removed){
-            // found=1;
-        // }
-        // if (found == 1){
-            // vertices[i] = vertices[i+1];
-        // }
-    // }
-    // struct node *edges = NULL;
-    // for(int i=0;i<number_of_edges;i++){
-        // if (edges[i][0]!=removed || edges[i][1]!=removed){
-// 
-        // }
-    // }
-// }
-
 int adj_matrix[30][30], visited[30];
 int number_of_vertices;
 
-void dfs(int v){
+int check_connectivity(int v){
     int i;
     visited[v] = 1;
     for (i = 1; i <= number_of_vertices; i++){
         if (adj_matrix[v][i] && !visited[i]){
             printf("\n %d->%d", v, i);
-            dfs(i);
+            check_connectivity(i);
         }
     }
+    int count = 0;
+    for (int i = 1; i <= number_of_vertices; i++) {
+        if (visited[i])
+            count++;
+    }
+    if (count == number_of_vertices)
+        return 1;
+    else
+        return 0;
 }
 
 //using int main as return can be used to break the flow in case of invalid input
@@ -99,16 +78,10 @@ int main(){
         loop j, k: vertix
             check path from j to k
     */
-    dfs(1);
-    printf("\n");
-    int count = 0;
-    for (int i = 1; i <= number_of_vertices; i++) {
-        if (visited[i])
-            count++;
+    for (int i = 0; i < number_of_vertices; i++){
+        if (check_connectivity(vertices[i])){
+            printf("\n%d is a cut vertix", vertices[i]);
+        }
     }
-    if (count == number_of_vertices)
-        printf("\n Graph is connected");
-    else
-        printf("\n Graph is not connected");
-    return 0;
+    
 }
