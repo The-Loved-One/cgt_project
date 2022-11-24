@@ -9,7 +9,7 @@ int check_connectivity(int v){
     visited[v] = 1;
     for (i = 1; i <= number_of_vertices; i++){
         if (adj_matrix[v][i] && !visited[i]){
-            printf("\n %d->%d", v, i);
+            // printf("\n %d->%d", v, i);
             check_connectivity(i);
         }
     }
@@ -79,9 +79,8 @@ int main(){
             check path from j to k
     */
     for (int i = 0; i < number_of_vertices; i++){
-        if (check_connectivity(vertices[i])){
+        if (!check_connectivity(vertices[i])){
             printf("\n%d is a cut vertix", vertices[i]);
         }
-    }
-    
+    }    
 }
