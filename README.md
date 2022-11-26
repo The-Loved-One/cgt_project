@@ -9,7 +9,7 @@
 - Get the edges
 - Form adjacency matrix
 - Loop through the vertixes
-    - remove the vertex
+    - mark the corresponding row and column in the adjacency matrix as 0 (removing the incident edges)
         - Use DFS and check if the graph is connected
         - if connected
             - mark that the graph is seperable
