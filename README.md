@@ -15,5 +15,7 @@
             - mark that the graph is seperable
             - print the vertex name
  
- SAMPLE OUTPUTS
-![image](https://user-images.githubusercontent.com/84980036/204101961-c77b891f-3df8-45ae-9be5-984198cf9347.png)
+ SAMPLE OUTPUTS<br><br>
+![image](https://user-images.githubusercontent.com/84980036/204102005-baa43b03-31b7-4a44-b656-829665617fde.png)
+<br><br>
+![image](https://user-images.githubusercontent.com/84980036/204102043-0ba81c00-ae84-44d7-a862-37fc111d5441.png)
