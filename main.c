@@ -5,7 +5,7 @@ int *visited;
 int number_of_vertices, number_of_edges;
 int *vertices;
 int **edges;
-int seperable=0;
+int seperable;
 int **adj_matrix;
 
 
