@@ -8,5 +8,10 @@
 - Get the vertices
 - Get the edges
 - Form adjacency matrix
-- Loop through the vertices, remove the ith vertix and using DFS, check if the resulted graph is connected
-    - if not connected => the ith vertix is a cut vertix and graph is called seperable
+- Loop through the vertixes
+    - remove the vertex
+        - Use DFS and check if the graph is connected
+        - if connected
+            - mark that the graph is seperable
+            - print the vertex name
+            
