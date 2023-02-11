@@ -1,19 +1,19 @@
-# cgt_assignment
+# CGT_Project
 
 
 ## Problem Statement
-- PROBLEM 6 => Implementation of cut vertices and separability
+- PROBLEM 6 => Implementation of separability and cut vertices.
 
 ## Algorithim
-- Get the vertices
-- Get the edges
-- Form adjacency matrix
-- Loop through the vertixes
-    - mark the corresponding row and column in the adjacency matrix as 0 (removing the incident edges)
-        - Use DFS and check if the graph is connected
-        - if connected
-            - mark that the graph is seperable
-            - print the vertex name
+- Get the vertices of the graph.
+- Get the edges of the graph.
+- Create adjacency matrix for the graph.
+- Loop through the vertices
+    - Mark the corresponding row and column in the adjacency matrix as 0 (removing the incident edges)
+        - Check if the graph is connected using DFS Traversal.
+        - If connected:
+            - Mark that the graph is seperable
+            - Print the vertex number, indicating that that vertex is the cut vertex of the given graph.
  
  SAMPLE OUTPUTS<br><br>
 ![image](https://user-images.githubusercontent.com/84980036/204102005-baa43b03-31b7-4a44-b656-829665617fde.png)
